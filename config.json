@@ -1,0 +1,41 @@
+{
+  "fleet": {
+    "id": "01feeaba-b7fe-11e8-9b72-0242ac110005",
+    "region_id": "30562c1a-b7ff-11e8-bda6-0242ac110004",
+    "billing_region": "31fc41f9-8ae6-11e6-844c-080027c8e447",
+    "locations": ["europe-west1-b", "europe-west1-c", "europe-west1-d"],
+    "customer_id": "ASID:777777",
+    "num_of_machines": 20,
+    "base_machine_specs": {
+      "cores": 8,
+      "memory": 32,
+      "disk": 1000,
+      "os_version": "Ubuntu (Server) 16.04 LTS",
+      "os_family":  "Linux"
+    }
+  },
+  "transitions": [
+    {
+      "state": "stop",
+      "duration": 2
+    },
+    {
+      "state": "spec_change",
+      "duration": 2
+    },
+    {
+      "state": "start",
+      "duration": 10
+    },
+    {
+      "state": "stop",
+      "duration": 2
+    },
+    {
+      "state": "scale_down",
+      "duration": 2
+    }
+  ],
+  "topic_id": "queue",
+  "project_id": "mp-metered-billing-dev-273014"
+}
