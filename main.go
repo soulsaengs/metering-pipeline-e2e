@@ -8,9 +8,8 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/soulsaengs/metering-pipeline-e2e/internal/mock"
-
 	"cloud.google.com/go/pubsub"
+	"github.com/soulsaengs/metering-pipeline-e2e/internal/mock"
 )
 
 func main() {
