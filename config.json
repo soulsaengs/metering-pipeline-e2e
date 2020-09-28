@@ -10,8 +10,8 @@
       "cores": 8,
       "memory": 32,
       "disk": 1000,
-      "os_version": "",
-      "os_family":  ""
+      "os_version": "Ubuntu (Server) 16.04 LTS",
+      "os_family":  "Linux"
     }
   },
   "transitions": [
