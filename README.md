@@ -57,3 +57,16 @@ Extra states can be added to extend the workflow.
 ```
 
 Valid transitions are defined in the following graph ![Graph](states.jpeg)
+
+### Deployment 
+
+#### Event Generator
+```shell script
+gcloud functions deploy GenerateEvents --runtime=go111 --trigger-http --region=us-central1 --source=PATH_TO_SOURCE --timeout=300s
+```
+
+#### Event Generator Scheduler
+
+```shell script
+gcloud scheduler jobs create http generator --schedule="0 * * * *" --uri=EVENT_GENEREATOR_URI --oidc-service-account-email=SERVICE_ACCOUNT_EMAIL --http-method=get
+```

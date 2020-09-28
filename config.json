@@ -5,13 +5,13 @@
     "billing_region": "31fc41f9-8ae6-11e6-844c-080027c8e447",
     "locations": ["europe-west1-b", "europe-west1-c", "europe-west1-d"],
     "customer_id": "ASID:777777",
-    "num_of_machines": 20,
+    "num_of_machines": 50,
     "base_machine_specs": {
       "cores": 8,
       "memory": 32,
       "disk": 1000,
-      "os_version": "Ubuntu (Server) 16.04 LTS",
-      "os_family":  "Linux"
+      "os_version": "",
+      "os_family":  ""
     }
   },
   "transitions": [
@@ -21,6 +21,14 @@
     },
     {
       "state": "spec_change",
+      "duration": 2
+    },
+    {
+      "state": "start",
+      "duration": 10
+    },
+    {
+      "state": "stop",
       "duration": 2
     },
     {

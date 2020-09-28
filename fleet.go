@@ -1,4 +1,4 @@
-package mock
+package simluation
 
 type MachineSpecs struct {
 	Cores     int    `json:"cores" validate:"required"`
