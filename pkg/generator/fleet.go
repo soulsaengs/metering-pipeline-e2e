@@ -1,4 +1,4 @@
-package simluation
+package generator
 
 type MachineSpecs struct {
 	Cores     int    `json:"cores" validate:"required"`

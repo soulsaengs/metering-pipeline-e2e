@@ -1,4 +1,4 @@
-package simluation
+package generator
 
 import (
 	"context"
@@ -113,14 +113,15 @@ func publishToPubSub(fleet *Fleet, machineID int, state State, t *pubsub.Topic) 
 
 func newEvent(fleet *Fleet, machineID int, state State) *Event {
 	return &Event{
-		ID:         uuid.New().String(),
-		FleetId:    fleet.Id,
-		RegionId:   fleet.RegionId,
-		MachineID:  machineID,
-		CustomerID: fleet.CustomerID,
-		Location:   fleet.Locations[0],
-		EventType:  state,
-		Timestamp:  time.Now(),
+		ID:            uuid.New().String(),
+		FleetId:       fleet.Id,
+		RegionId:      fleet.RegionId,
+		MachineID:     machineID,
+		BillingRegion: fleet.BillingRegion,
+		CustomerID:    fleet.CustomerID,
+		Location:      fleet.Locations[0],
+		EventType:     state,
+		Timestamp:     time.Now(),
 		MetaData: map[string]interface{}{
 			"cores":      fleet.BaseMachineSpec.Cores,
 			"memory":     fleet.BaseMachineSpec.Memory,
