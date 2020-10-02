@@ -5,7 +5,7 @@
     "billing_region": "31fc41f9-8ae6-11e6-844c-080027c8e447",
     "locations": ["europe-west1-b", "europe-west1-c", "europe-west1-d"],
     "customer_id": "ASID:777777",
-    "num_of_machines": 50,
+    "num_of_machines": 5 ,
     "base_machine_specs": {
       "cores": 8,
       "memory": 32,
@@ -44,6 +44,5 @@
       "duration": 2
     }
   ],
-  "topic_id": "queue",
-  "project_id": "mp-metered-billing-dev-273014"
+  "topic_id": "queue"
 }

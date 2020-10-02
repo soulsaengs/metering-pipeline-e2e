@@ -1,4 +1,4 @@
-package simluation
+package generator
 
 import (
 	"testing"

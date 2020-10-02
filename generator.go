@@ -1,40 +1,37 @@
 package simluation
 
 import (
-	"cloud.google.com/go/pubsub"
 	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
+
+	"cloud.google.com/go/pubsub"
+	"github.com/soulsaengs/metered-billing-e2e/pkg/generator"
 )
 
-var (
-	client *pubsub.Client
-	cfg *ProducerConfigs
-)
-
-func init() {
+func GenerateEvents(w http.ResponseWriter, _ *http.Request) {
 	bytes, err := ioutil.ReadFile("config.json")
 	if err != nil {
 		log.Fatalf("unable to read file : %v", err)
 	}
 
-	cfg = &ProducerConfigs{}
+	cfg := &generator.ProducerConfigs{}
 	if err := json.Unmarshal(bytes, cfg); err != nil {
 		log.Fatalf("unable to unmarshall file : %v", err)
 	}
 
-	client, err = pubsub.NewClient(context.Background(), cfg.ProjectId)
+	projectID := os.Getenv("PROJECT_ID")
+	client, err := pubsub.NewClient(context.Background(), projectID)
 	if err != nil {
 		log.Fatalf("unable to create pubsub client : %v", err)
 	}
-}
 
-func GenerateEvents(w http.ResponseWriter, _ *http.Request) {
 	topic := client.Topic(cfg.TopicId)
-	producer := &EventProducer{
+	producer := &generator.EventProducer{
 		T: topic,
 	}
 
